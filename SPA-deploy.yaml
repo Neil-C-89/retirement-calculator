@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: retirement-deploy
+spec:
+  replicas: 2
+  minReadySeconds: 10
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1
+  template:
+    metadata:
+      labels:
+        app: retirement-calculator
+    spec:
+      containers:
+      - name: retirement-pod
+        image: neilc89/spa-demo:v1
+        ports:
+        - containerPort: 8080

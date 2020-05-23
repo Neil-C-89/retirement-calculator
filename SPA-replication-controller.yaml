@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: retirement-rc
+spec:
+  replicas: 10
+  selector:
+    app: retirement-calculator
+  template:
+    metadata:
+      labels:
+        app: retirement-calculator
+    spec:
+      containers:
+      - name: retirement-ctr
+        image: neilc89/spa-demo:v1
+        ports:
+        - containerPort: 8080

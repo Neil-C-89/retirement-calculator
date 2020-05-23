@@ -1,0 +1,17 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: deployment-name
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: retirement-calculator
+    spec:
+      containers:
+        - name: retirement-pod
+          image: neilc89/spa-demo:v1
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080

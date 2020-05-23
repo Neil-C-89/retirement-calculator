@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## To-do List
+
+* Implement basic save/view of retirement scenario
+* Create profile settings save/view (things that rarely change, perhaps default data when making scenarios?)
+* Configure docker compose
+* Generate some scenarios
+* Create unit tests
+* Implement security scanning of code

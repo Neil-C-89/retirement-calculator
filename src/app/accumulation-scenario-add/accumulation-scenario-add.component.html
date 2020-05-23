@@ -1,0 +1,42 @@
+<div class="card">
+  <div class="card-body">
+    <form [formGroup]="angForm" novalidate>
+      <div class="form-group">
+        <label class="col-md-4">Scenario Name</label>
+        <input type="text" class="form-control" formControlName="ScenarioName"
+        #ScenarioName/>
+      </div>
+      <div *ngIf="angForm.controls['ScenarioName'].invalid && (angForm.controls['ScenarioName'].dirty || angForm.controls['ScenarioName'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['ScenarioName'].errors.required">
+          Scenario Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Savings Per Year</label>
+        <input type="text" class="form-control" formControlName="SavingsPerYear"
+        #SavingsPerYear/>
+      </div>
+      <div *ngIf="angForm.controls['SavingsPerYear'].invalid && (angForm.controls['SavingsPerYear'].dirty || angForm.controls['SavingsPerYear'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['SavingsPerYear'].errors.required">
+          Scenario Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="col-md-4">Years to Retirement</label>
+        <input type="text" class="form-control" formControlName="YearsToRetire"
+        #YearsToRetire/>
+      </div>
+      <div *ngIf="angForm.controls['YearsToRetire'].invalid && (angForm.controls['YearsToRetire'].dirty || angForm.controls['YearsToRetire'].touched)" class="alert alert-danger">
+        <div *ngIf="angForm.controls['YearsToRetire'].errors.required">
+          Scenario Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <button (click) = "addScenario(ScenarioName.value, SavingsPerYear.value, YearsToRetire.value)" type="submit" class="btn btn-primary"
+        [disabled]="angForm.pristine || angForm.invalid" >
+          Create Product
+        </button>
+</div>
+    </form>
+  </div>
+</div>
