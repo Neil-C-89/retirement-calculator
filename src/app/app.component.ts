@@ -1,22 +1,28 @@
 import { Component } from '@angular/core';
 import { SlimLoadingBarService } from 'ng2-slim-loading-bar';
-import { NavigationCancel,
+import {
+  NavigationCancel,
   Event,
   NavigationEnd,
   NavigationError,
   NavigationStart,
-  Router } from '@angular/router';
+  Router,
+} from '@angular/router';
 import { AuthenticationService } from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
   title = 'retirement-calculator';
 
-  constructor(public auth: AuthenticationService, private loadingBar: SlimLoadingBarService, private router: Router) {
+  constructor(
+    public auth: AuthenticationService,
+    private loadingBar: SlimLoadingBarService,
+    private router: Router
+  ) {
     this.router.events.subscribe((event: Event) => {
       this.navigationInterceptor(event);
     });

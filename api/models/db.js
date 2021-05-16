@@ -1,24 +1,28 @@
 /* eslint-disable no-console */
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 let gracefulShutdown;
 
-let dbURI = 'mongodb://localhost/retireApp';
-if (process.env.NODE_ENV === 'production') {
+let dbURI = "mongodb://localhost/retireApp";
+if (process.env.NODE_ENV === "production") {
   dbURI = process.env.MONGOLAB_URI;
 }
+
+mongoose.set("useNewUrlParser", true);
+mongoose.set("useFindAndModify", false);
+mongoose.set("useCreateIndex", true);
 
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true });
 
 // CONNECTION EVENTS
-mongoose.connection.on('connected', () => {
+mongoose.connection.on("connected", () => {
   console.log(`Mongoose connected to ${dbURI}`);
 });
-mongoose.connection.on('error', (err) => {
+mongoose.connection.on("error", (err) => {
   console.log(`Mongoose connection error: ${err}`);
 });
-mongoose.connection.on('disconnected', () => {
-  console.log('Mongoose disconnected');
+mongoose.connection.on("disconnected", () => {
+  console.log("Mongoose disconnected");
 });
 
 // CAPTURE APP TERMINATION / RESTART EVENTS
@@ -30,23 +34,23 @@ gracefulShutdown = function (msg, callback) {
   });
 };
 // For nodemon restarts
-process.once('SIGUSR2', () => {
-  gracefulShutdown('nodemon restart', () => {
-    process.kill(process.pid, 'SIGUSR2');
+process.once("SIGUSR2", () => {
+  gracefulShutdown("nodemon restart", () => {
+    process.kill(process.pid, "SIGUSR2");
   });
 });
 // For app termination
-process.on('SIGINT', () => {
-  gracefulShutdown('app termination', () => {
+process.on("SIGINT", () => {
+  gracefulShutdown("app termination", () => {
     process.exit(0);
   });
 });
 // For Heroku app termination
-process.on('SIGTERM', () => {
-  gracefulShutdown('Heroku app termination', () => {
+process.on("SIGTERM", () => {
+  gracefulShutdown("Heroku app termination", () => {
     process.exit(0);
   });
 });
 
 // BRING IN YOUR SCHEMAS & MODELS
-require('./users');
+require("./users");

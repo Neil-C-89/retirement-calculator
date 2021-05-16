@@ -1,1 +1,23 @@
 <p>accumulation-scenario-get works!</p>
+<br>
+<div class="form-row">
+  <div class="col">
+    <table class="table table-striped table-boardered table-sm table-hover">
+      <thead>
+        <tr>
+          <th>Scenario Name</th>
+          <th>Savings per year</th>
+          <th>Years to retire</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let scenario of scenarios">
+          <td>{{ scenario.ScenarioName }}</td>
+          <td>{{ scenario.SavingsPerYear }}</td>
+          <td>{{ scenario.YearsToRetire }}</td>
+          <td><a (click)="deleteScenario(scenario._id)" class="btn btn-danger">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -9,8 +9,7 @@ describe('AccumulationScenarioAddComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AccumulationScenarioAddComponent],
-    })
-      .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

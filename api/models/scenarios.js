@@ -1,18 +1,22 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require("mongoose");
 
-let Scenario = new Schema({
-  ScenarioName: {
-    type: String
+const { Schema } = mongoose;
+
+const Scenario = new Schema(
+  {
+    ScenarioName: {
+      type: String,
+    },
+    SavingsPerYear: {
+      type: Number,
+    },
+    YearsToRetire: {
+      type: Number,
+    },
   },
-  SavingsPerYear: {
-    type: Number
-  },
-  YearsToRetire: {
-    type: Number
+  {
+    collection: "Scenario",
   }
-}, {
-  collection: 'Scenario'
-});
+);
 
-module.exports = mongoose.model('Scenario', Scenario);
+module.exports = mongoose.model("Scenario", Scenario);

@@ -5,7 +5,7 @@ import { ScenariosService } from '../scenarios.service';
 @Component({
   selector: 'app-accumulation-scenario-add',
   templateUrl: './accumulation-scenario-add.component.html',
-  styleUrls: ['./accumulation-scenario-add.component.css']
+  styleUrls: ['./accumulation-scenario-add.component.css'],
 })
 export class AccumulationScenarioAddComponent implements OnInit {
   angForm: FormGroup;
@@ -26,7 +26,5 @@ export class AccumulationScenarioAddComponent implements OnInit {
     this.ss.addScenario(ScenarioName, SavingsPerYear, YearsToRetire);
   }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 }

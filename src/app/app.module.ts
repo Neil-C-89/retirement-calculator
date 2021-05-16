@@ -1,9 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import { SlimLoadingBarModule } from 'ng2-slim-loading-bar';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -44,4 +43,4 @@ import { ScenariosService } from './scenarios.service';
   providers: [AuthenticationService, AuthGuardService, ScenariosService],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

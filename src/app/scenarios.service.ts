@@ -7,8 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class ScenariosService {
   uri = 'http://localhost:4000/scenarios';
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   addScenario(ScenarioName: any, SavingsPerYear: any, YearsToRetire: any) {
     const obj = {
@@ -16,8 +15,14 @@ export class ScenariosService {
       SavingsPerYear,
       YearsToRetire,
     };
-    console.log(obj);
-    this.http.post(`${this.uri}/add`, obj)
-      .subscribe(() => console.log('Done'));
+    this.http.post(`${this.uri}/add`, obj).subscribe(() => console.log('Done'));
+  }
+
+  getScenarios() {
+    return this.http.get(`${this.uri}`);
+  }
+
+  deleteScenario(id) {
+    return this.http.get(`${this.uri}/delete/${id}`);
   }
 }
