@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { AccumulationScenarioEditComponent } from './accumulation-scenario-edit.component';
 
@@ -6,7 +6,7 @@ describe('AccumulationScenarioEditComponent', () => {
   let component: AccumulationScenarioEditComponent;
   let fixture: ComponentFixture<AccumulationScenarioEditComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [AccumulationScenarioEditComponent],
     }).compileComponents();
